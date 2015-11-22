@@ -1,0 +1,35 @@
+# Makefile template for shared library
+ 
+INCPATH = -I/usr/packages/boost_1_57_0 -I/usr/packages/cpp-netlib-0.11.1-final -I/usr/packages/rapidxml_1_0_0 -I/usr/packages/ohNet-Linux-x86-Release/include/ohnet
+
+CC = /usr/packages/RaspberryPiTools/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/arm-linux-gnueabihf-g++
+CXX = /usr/packages/RaspberryPiTools/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/arm-linux-gnueabihf-g++
+CFLAGS = -std=c++0x -fPIC -Wall -Wextra -O2 -c -pthread -I /usr/development/raumfeld/RaumKernel
+CXXFLAGS = -std=c++0x -fPIC -Wall -Wextra -O2 -c -pthread -I /usr/development/raumfeld/RaumKernel
+LDFLAGS = -lm -pthread -static-libgcc -static-libstdc++ -lrt -Wl,-rpath,lib/
+
+LIBSDEF = libs/raumkern.so /usr/packages/libsRASPI/libohNetCore.a /usr/packages/libsRASPI/libohNetDevices.a /usr/packages/libsRASPI/libohNetProxies.a /usr/packages/libsRASPI/libcppnetlib-uri.a /usr/packages/libsRASPI/libboost_system.a /usr/packages/libsRASPI/libboost_thread.a /usr/packages/libsRASPI/libboost_signals.a /usr/packages/libsRASPI/libboost_date_time.a /usr/packages/libsRASPI/libboost_regex.a 
+
+
+RM = rm -f 
+TARGET_EXEC = raumServer
+ 
+SRCS = RaumServer.cpp RaumServerGUI.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+
+.PHONY: all
+all: ${TARGET_EXEC}
+ 
+$(TARGET_EXEC): $(OBJS)
+	$(CC) ${LDFLAGS} -o $@ $^ $(LIBSDEF)
+ 
+$(SRCS:.cpp=.d):%.d:%.cpp
+	$(CC) $(CFLAGS) -MM $< >$@
+ 
+include $(SRCS:.cpp=.d)
+ 
+
+.PHONY: clean
+clean:
+	-${RM} ${TARGET_EXEC} ${OBJS} $(SRCS:.cpp=.d) 

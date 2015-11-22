@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<presets>
+  <preset id="goToSleep">
+    <request>/raumserver/room/Schlafzimmer/createZone?force=true</request>
+    <request>/raumserver/zone/Schlafzimmer/volume?value=0</request>
+    <request>/raumserver/zone/Schlafzimmer/loadPlaylist?name=[playlistName]</request>  
+    <request>/raumserver/zone/Schlafzimmer/play</request>    
+    <request>/raumserver/zone/Schlafzimmer/sleepTimer?time=[playTime]&fadeOutTime=[fadeOutTime]</request>
+	<!-- fadeToVolume action has to be called after sleep timer because sleepTimer will kill all threads running for the zone! -->
+	<request>/raumserver/zone/Schlafzimmer/fadeToVolume?value=[volume]&fadeTime=6</request>
+  </preset>
+  <preset id="goToSleepTest">
+    <request>/raumserver/room/uuid:3f68f253-df2a-4474-8640-fd45dd9ebf88/createZone?force=true</request>
+    <request>/raumserver/zone/uuid:3f68f253-df2a-4474-8640-fd45dd9ebf88/volume?value=0</request>
+    <request>/raumserver/zone/uuid:3f68f253-df2a-4474-8640-fd45dd9ebf88/loadPlaylist?name=[playlistName]</request>  
+    <request>/raumserver/zone/uuid:3f68f253-df2a-4474-8640-fd45dd9ebf88/play</request>   
+    <request>/raumserver/zone/uuid:3f68f253-df2a-4474-8640-fd45dd9ebf88/sleepTimer?time=[playTime]&fadeOutTime=[fadeOutTime]</request>
+	<!-- fadeToVolume action has to be called after sleep timer because sleepTimer will kill all threads running for the zone! -->
+	<request>/raumserver/zone/uuid:3f68f253-df2a-4474-8640-fd45dd9ebf88/fadeToVolume?value=[volume]&fadeTime=6</request>
+  </preset>
+  <preset id="goToSleepCur">
+    <request>/raumserver/room/Schlafzimmer/sleepTimer?time=[sleepTime]&fadeOutTime=[fadeOutTime]</request>
+  </preset>
+  <preset id="wakeMeUp">
+    <request>/raumserver/room/Schlafzimmer/createZone</request>
+    <request>/raumserver/zone/Schlafzimmer/loadPlaylist?name=[playlistName]</request>
+    <request>/raumserver/zone/Schlafzimmer/wakeUpTimer?time=[wakeUpTime]&fadeInTime=[fadeInTime]</request>
+  </preset>
+  <preset id="test">
+    <request>/raumserver/room/uuid:3f68f253-df2a-4474-8640-fd45dd9ebf88/createZone?force=true</request>
+    <request>/raumserver/room/Schlafzimmer/addToZone?room=uuid%3A3f68f253-df2a-4474-8640-fd45dd9ebf88</request>
+    <request>/raumserver/zone/uuid:3f68f253-df2a-4474-8640-fd45dd9ebf88/loadPlaylist?name=[playlistName]</request>	
+	<request>/raumserver/zone/uuid:3f68f253-df2a-4474-8640-fd45dd9ebf88/play</request>	
+    <request>/raumserver/zone/uuid:3f68f253-df2a-4474-8640-fd45dd9ebf88/wakeUpTimer?time=[playTime]&fadeInTime=[fadeInTime]&maxVolume=[maxVolume]&fadeOutTime=[fadeOutTime]</request>
+	
+  </preset>
+</presets>

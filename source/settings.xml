@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application>
+
+  <!-- RAUMSERVER SETTINGS -->
+  <Raumserver>
+    <!-- set if raumserver is allowed to build a gui in the console (otherwise only log output as defined in the kernel options will be printed) -->
+    <ConsoleGUIEnabled>1</ConsoleGUIEnabled>
+	  <KeepAliveOnSignalErrors>1</KeepAliveOnSignalErrors>
+	  <!-- defines the update server where raumserver searches for new updates. Leave Blank if you no not want raumfeld to search for updates -->
+	  <!-- there are several update types (beta,stable) who define which update the system should look for -->
+	  <!-- !!! NOT IMPLEMENTED YET !!! -->
+    <!-- UpdateServer types="beta,stable">http://bassmaniacs.com/data/raumfeldApps/</UpdateServer>-->
+  </Raumserver>
+  
+  <!-- RAUMKERN SETTINGS -->
+  <Raumkern>
+	<!-- the raumkernel uses the first available networkadapter found in the system. This may not be the one you like to use! -->
+	<!-- so you can type in the network adapter name the application should use!-->
+    <NetworkAdapterName>Killer Wireless-N 1202 (2.4GHz and 5GHz)</NetworkAdapterName>
+    <!-- Log Settings. You might change some settings here if you want to change the output log level or add/remove a log adapter -->
+    <!-- To get the available options for 'LogLevel' and 'LogAdapter' please take a look at the readme.html -->
+    <LogLevel>DEBUG</LogLevel> 
+    <LogAdapter>SIGNAL</LogAdapter>
+    <LogAdapter>FILE</LogAdapter>
+    <!-- Some Basic Kernel Settings are following -->
+	<!-- Usually here is no need to change anything -->
+    <HostConfigDeviceName>Raumfeld ConfigDevice</HostConfigDeviceName>
+    <MediaServerName>Raumfeld MediaServer</MediaServerName>
+    <HostRequestPort>47365</HostRequestPort>
+    <MediaRendererIdentification>MediaRenderer</MediaRendererIdentification>
+    <MediaServerIdentification>MediaServer</MediaServerIdentification>
+    <RaumfeldDescriptionVirtualMediaPlayer>Virtual Media Player</RaumfeldDescriptionVirtualMediaPlayer>
+    <RaumfeldManufacturer>Raumfeld GmbH</RaumfeldManufacturer>       
+    <!-- Raumkern-Server option enabled will start a http server which can handle http requests for controlling the raumfeld system -->
+    <!-- To get the available requests please take a look at the readme.html -->
+	<!-- Usually there is nothing to change -->
+    <Server> 
+      <Enabled>1</Enabled>
+      <Port>8080</Port>
+	    <MaxAllowedThreads>40</MaxAllowedThreads>
+      <RequestPresetsFile>D:\Projekte\Raumfeld\RaumfeldKernel\_VS3\RaumfeldKernel\requestPresets.xml</RequestPresetsFile>
+	    <TimeoutRequest>10</TimeoutRequest>
+	    <TimeoutContent>300</TimeoutContent>
+      <FailureRestartPolltime>4000</FailureRestartPolltime>
+    </Server>
+    <WebClient>
+      <rootPath>D:\Projekte\Raumfeld\RaumfeldKernel\_VS3\RaumfeldKernel\webclient\</rootPath>
+    </WebClient>
+  </Raumkern> 
+</Application>

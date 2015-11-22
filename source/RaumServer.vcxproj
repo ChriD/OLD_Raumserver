@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RaumServer.cpp" />
+    <ClCompile Include="RaumServerGUI.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Backtrace.hpp" />
+    <ClInclude Include="RaumServer.h" />
+    <ClInclude Include="RaumServerGUI.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\raumServerHistory .txt" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0061B06E-5544-4A5C-98DF-874AAC89A4F0}</ProjectGuid>
+    <RootNamespace>RaumServer</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>D:\Packages\rapidxml_1_0_0;D:\Packages\boost_1_57_0;D:\Packages\ohNet_x86_1_1_1429_VC13\Debug\include\ohnet;D:\Projekte\Raumfeld\RaumfeldKernel\_VS3\RaumfeldKernel\RaumfeldKernel;D:\Projekte\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>raumkern.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_program_options-vc120-mt-gd-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_thread-vc120-mt-gd-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_date_time-vc120-mt-gd-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_regex-vc120-mt-gd-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_system-vc120-mt-gd-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_filesystem-vc120-mt-gd-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_chrono-vc120-mt-gd-1_57.lib;D:\Packages\cpp-netlib-0.11.1-final\cpp-netlib-build\libs\network\src\Debug\cppnetlib-uri.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Packages\ohNet_x86_1_1_1429_VC13\Debug\lib;D:\Packages\boost_1_57_0\lib32-msvc-12.0;D:\Projekte\Raumfeld\RaumfeldKernel\_VS3\RaumfeldKernel\Debug;D:\Projekte\Visual Leak Detector\lib\Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>D:\Packages\rapidxml_1_0_0;D:\Packages\boost_1_57_0;D:\Packages\ohNet_x86_1_1_1429_VC13\Debug\include\ohnet;D:\Projekte\Raumfeld\RaumfeldKernel\_VS3\RaumfeldKernel\RaumfeldKernel;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>raumkern.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_program_options-vc120-mt-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_thread-vc120-mt-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_date_time-vc120-mt-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_regex-vc120-mt-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_system-vc120-mt-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_filesystem-vc120-mt-1_57.lib;D:\Packages\boost_1_57_0\stage\lib\libboost_chrono-vc120-mt-1_57.lib;D:\Packages\cpp-netlib-0.11.1-final\cpp-netlib-build\libs\network\src\Release\cppnetlib-uri.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Packages\ohNet_x86_1_1_1429_VC13\Release\lib;D:\Packages\boost_1_57_0\lib32-msvc-12.0;D:\Projekte\Raumfeld\RaumfeldKernel\_VS3\RaumfeldKernel\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

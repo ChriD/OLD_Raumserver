@@ -1,0 +1,399 @@
+
+/* Zone Information CSS */
+
+
+.zoneInformationMiniContainer 
+{
+    margin: 0px;
+    padding-top: 5px;
+    padding-left: 0px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    color: #666;
+    background-color: #E1E3E1; 
+    overflow: hidden;
+}
+
+.zoneInformationMiniContainer .left
+{
+    float:left; 
+    //background-color: green;    
+    margin-right: 10px;
+    height: 120px;
+}
+
+.zoneInformationMiniContainer .left .img 
+{
+    width: 120px;
+    vertical-align: middle;
+}
+
+.zoneInformationMiniContainer .right
+{
+    //float:left;
+    //background-color: red;
+}
+
+
+.zoneInformationMiniContainer .right div
+{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: normal;
+}
+
+.zoneInformationMiniContainer .zoneName
+{
+    font-size:18px;
+    font-weight: bold; 
+    margin-top: 3px;
+    margin-bottom: 10px;
+   
+}
+
+.zoneInformationMiniContainer .artist
+{
+    font-size:12px;
+    margin-bottom: 3px;
+}
+
+.zoneInformationMiniContainer .title
+{
+   font-size:12px;
+   font-weight: bold;
+}
+
+.zoneInformationMiniContainerTransportState
+{
+   font-size:10px;
+   font-weight:normal;
+   font-style:italic;
+   margin-top:4px;
+}
+
+.zoneInformationMiniContainerRendererControlContainer 
+{    
+    margin-top:8px;
+}
+
+
+
+
+
+.zoneRendererView 
+{
+    width: 500px;  
+}
+
+
+
+
+.zoneRendererViewLeft
+{
+   float: left;
+   //border: 1px solid blue;
+   width: 50px;
+   height: 300px;
+   background-color: #E1E3E1;
+   
+}
+
+
+.zoneRendererViewRight
+{
+    
+    float: right;
+    //border: 1px solid green;
+    width: 200px;
+    height: 300px;
+    background-color: #E1E3E1;
+}
+
+.zoneRendererViewName 
+{
+    border: 1px solid yellow;
+
+    font-weight:bold;
+}
+
+
+.zoneRendererViewAlbumArtImage
+{
+    width: 300px;
+    height: 300px;   
+}
+
+
+.zoneRendererView .track
+{
+    font-weight: bold;
+}
+
+.zoneRendererView .artist
+{
+    color: #666; 
+}
+
+
+
+
+
+
+#zoneManagementControl
+{
+	float: left;
+	width: 350px;
+	margin-right: 50px;
+}
+
+
+#zoneManagementControl .zoneManagementListZoneItem
+{	
+	margin: 0px;
+	padding-top: 5px;
+	padding-left: 5px;
+    padding-right: 5px;
+	padding-bottom: 5px;		
+	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;	
+	color: #666; 
+	background-color: #E1E3E1;
+	//border: 1px solid blue;
+    overflow: hidden;
+}
+
+
+#zoneManagementControl .left
+{
+    float:left; 
+    //background-color: green;    
+    margin-right: 10px;
+}
+
+#zoneManagementControl .left .img 
+{
+    width: 70px;
+    vertical-align: middle;
+}
+
+#zoneManagementControl .right
+{
+    //float:left;
+    //background-color: red;
+}
+
+
+#zoneManagementControl .right div
+{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: normal;
+}
+
+#zoneManagementControl .zoneName
+{
+    font-size:18px;
+    font-weight: bold; 
+    margin-top: 3px;
+    margin-bottom: 10px;
+   
+}
+
+
+#zoneManagementControl .artist
+{
+    font-size:12px;
+    margin-bottom: 3px;
+}
+
+#zoneManagementControl .title
+{
+   font-size:12px;
+   font-weight: bold;
+}
+
+
+	
+
+#zoneManagementControl .zoneManagementListZoneItem:hover
+{
+	color: #000;
+	background-color: #ddd; 
+}
+
+#zoneManagementControl .zoneManagementListRoomItem{
+	margin: 0px;
+	padding-left: 20px; 
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #666; 
+	border-bottom: 1px solid #ccc;
+    //border: 1px solid green;
+	//cursor: pointer;
+}
+
+#zoneManagementControl .zoneManagementListRoomItem:hover{
+	color: #000;
+	background-color: #ddd; 
+}
+
+#zoneManagementControl .zoneManagementListRoomItem_RoomName{	
+	float: left;	
+	//border: 1px solid red;
+	//white-space: nowrap;
+}
+
+#zoneManagementControl .zoneManagementListRoomItem_ActionIcons{	
+	float: right;		
+	//border: 1px solid red;
+	//white-space: nowrap;
+}
+
+#zoneManagementControl .zoneManagementListRoomItem_ActionIcons div
+{	
+    //background-color: black;
+    //border: 1px solid red;
+	float: left;		
+}
+
+#zoneManagementControl .zoneManagementListRoomItem_RoomInfo{	
+	float: left;	
+	//border: 1px solid green;
+	font-size:12px;
+}
+
+
+a.icono-caretRightCircle{
+color: #969696;
+}
+a.icono-caretRightCircle:hover{
+color: black;
+}
+
+a.icono-crossCircle{
+color: #969696;
+}
+a.icono-crossCircle:hover{
+color: black;
+}
+
+a.icono-plussCircle{
+color: #969696;
+}
+a.icono-plussCircle:hover{
+color: black;
+}
+
+
+#cleared {
+  clear: both;
+}
+
+
+
+.zonePlaylist
+{
+    overflow-y: scroll;   
+    height: 55vh;    
+}
+
+
+.zonePlaylist .playlistItemContainer
+{
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: normal;
+    border-bottom: 1px solid #ccc;
+    //margin-bottom: 3px;
+    padding-top: 2px;
+    color: #666; 
+}
+
+.zonePlaylist .playlistItemContainer:hover
+{
+	color: #000;
+	background-color: #ddd; 
+}
+
+.playlistItemContainerCurrent
+{
+	color: #ccc;
+	background-color: #93eb92; 
+}
+
+.zonePlaylist .playlistItemContainer .left 
+{
+    float:left; 
+    width:70%;
+}
+
+.zonePlaylist .playlistItemContainer .right 
+{
+    float: right; 
+    padding-right: 5px;
+}
+
+.zonePlaylist .playlistItemContainer .artist 
+{
+    font-size: 10px;
+    margin-bottom: 3px;
+}
+
+.zonePlaylist .playlistItemContainer .title 
+{ 
+}
+
+
+#zoneChoosement
+{
+    float: left;
+}
+
+
+.zoneChoosementBlock 
+{
+    float: left;
+    background-color: #E1E3E1;
+    color: #666; 
+    width: 100px;
+    height:100px;
+    line-height: 100px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    padding: 4px;   
+    text-align: center; 
+    font-size: 16px; 
+
+    overflow:hidden;
+    text-overflow: ellipsis;  
+  
+}
+
+.zoneChoosementBlockSelected 
+{
+    border: 1px solid green;
+}
+
+.zoneChoosementBlock span 
+{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 18px;     
+}
+
+.zoneChoosementBlock:hover
+{
+	color: #000;
+	background-color: #ddd; 
+}
+
+
+
+
+

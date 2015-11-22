@@ -1,0 +1,39 @@
+#RaumServer Version History File
+
+# 0.1.10.97 ()
+  - Enabled Cross-origin policy (webServer)
+  - renamed fault filenames to be compatible with linux
+  - fixed a crash if zone manager is closed without having a long polling running
+
+
+# 0.1.10.96 (21.03.2015)
+ - fixed not closing server session issue
+ - fixed Crash when avTransportUri gets empty!
+ - fixes wait time init value for some architectures
+ - fixed "play" request with track number to work proper
+ - updates on webclient
+
+
+# 0.1.10.95 (07.03.2015)
+ - fixed Bug on zoneRequest when loosing and reestablishing host
+ - fixed Bug on zoneRequest when getting wrong written updateId
+ - updates on webclient
+
+
+# 0.1.10.94 (28.02.2015)
+ - fixed request error on "volumeChange" with negative values
+ - fixed "wakeUptimer" lock (wake up timer was corrupt!)
+ - kernel update
+
+
+# 0.1.10.93 (16.02.2015)
+ - fixed Code which causes Segmentation fault on renderer reboot
+ - stability improvements
+
+
+# 0.1.10.92 (15.02.2015)
+ - added Signal Handlers ("Catching" abort and Segmentation faults to print error log) / only available in linux
+ - fixed code which could cause Segmentation fault due not locking internal list when working on it
+
+
+# 0.1.10.91 (06.02.2015)	ReleaseCandidate - InitialVersion / RaumKernVersion 0.1.10.92 / RaumfeldVersion 1.42.8   

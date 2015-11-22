@@ -1,0 +1,193 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RaumServer WebClient</title>
+
+    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/waitMe.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/normalize.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/icono.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/dropit.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/webclient.css" type="text/css" media="screen" />
+
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/respond.min.js"></script>
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/waitMe.min.js"></script>
+    <script src="js/webclient.js"></script>
+    <script src="js/dropit.js"></script>
+    <script src="js/handlebars.js"></script>
+
+    <!-- Templates -->
+    <!-- zoneInformationTemplate
+         This Template is used to draw the zone information like the artist image and other information like artist, title... -->
+    <script id="zoneInformationTemplate" type="text/x-handlebars-template">
+        <div class="zoneInformationMiniContainer">
+            <div class="left">
+                <object class="img" data="{{albumArtUri}}" type="image/png">
+                    <img class="img" src="img/noAlbumArt.png">
+                </object>
+            </div>
+            <div class="right">
+                <div class="zoneName">{{zoneName}}</div>
+                <div class="artist">{{artist}}</div>
+                <div class="title">{{title}}</div>
+                <div class="zoneInformationMiniContainerTransportState">{{transportState}}</div>
+                <div class="zoneInformationMiniContainerRendererControlContainer">
+                    <button type="button" onclick="PlayPrev('{{zoneUDN}}')">|<<</button>
+                    <button type="button" onclick="PlayPause('{{zoneUDN}}')">Play/Pause</button>
+                    <button type="button" onclick="PlayNext('{{zoneUDN}}')">>>|</button>
+                </div>
+            </div>
+        </div>             
+        <div class="clear"></div>
+        <div class="zonePlaylist" data-id="{{zoneUDN}}"></div>
+    </script>
+   
+
+    <!-- zonePlaylistItem
+         This Template is used to draw the zone playlist -->
+    <script id="zonePlaylistItemTemplate" type="text/x-handlebars-template">
+        <div id="{{trackId}}" class="playlistItemContainer" data-id="{{trackId}}" ondblclick="PlayTrack('{{zoneUDN}}', '{{trackNumber}}')">
+            <div class="left">
+                <div class="title">{{title}}</div>
+                <div class="artist">{{artist}}</div>
+            </div>
+            <div class="right">{{duration}}</div>
+        </div>
+    </script>
+
+
+
+    <!-- zoneManagementZoneTemplate  -->
+    <script id="zoneManagementZoneTemplate" type="text/x-handlebars-template">
+        <div class="zoneManagementListZoneItem dropZone" id="{{zoneUDN}}">
+            <div class="left" >
+                <object class="img" data="{{albumArtUri}}" type="image/png">
+                    <img class="img" src="img/noAlbumArt.png">
+                </object>               
+             </div>
+            <div class="right">
+                <div class="zoneName">{{zoneName}}</div>
+                <div class="artist">{{artist}}</div>
+                <div class="title">{{title}}</div>               
+            </div>          
+        </div>      
+    </script>
+
+    <!-- zoneManagementRoomTemplate -->
+    <script id="zoneManagementRoomTemplate" type="text/x-handlebars-template">
+        <div class="zoneManagementListRoomItem dragRoom" id="{{roomUDN}}">
+            <div class="zoneManagementListRoomItem_RoomName">{{roomName}}</div>
+            <div class="zoneManagementListRoomItem_ActionIcons">
+                <div><a href="javascript:void(0)" class="icono-crossCircle" onclick="DropRoomFromZone('{{roomUDN}}')"></a></div>
+                <div><a href="javascript:void(0)" class="icono-plussCircle" onclick="CreateZoneForRoom('{{roomUDN}}')"></a></div>
+                <div><ul class="roomMenu"><li><a href="javascript:void(0)" class="icono-caretRightCircle" onclick=""></a>{{{htmlMenuAssigned}}}</li></ul></div>
+            </div>
+            <div id="cleared"></div>
+            <div class="zoneManagementListRoomItem_RoomInfo">{{roomUDN}}</div>
+            <div id="cleared"></div>
+        </div>
+    </script>
+
+    <!-- zoneManagementUnassignedRoomTemplate -->
+    <script id="zoneManagementUnassignedRoomTemplate" type="text/x-handlebars-template">
+        <div class="zoneManagementListRoomItem dragRoom" id="{{roomUDN}}">
+            <div class="zoneManagementListRoomItem_RoomName">{{roomName}}</div>
+            <div class="zoneManagementListRoomItem_ActionIcons">
+                <div><a href="javascript:void(0)" class="icono-plussCircle" onclick="CreateZoneForRoom('{{roomUDN}}')"></a></div>
+                <div><ul class="roomMenu"><li><a href="javascript:void(0)" class="icono-caretRightCircle" onclick=""></a>{{{htmlMenuUnAssigned}}}</li></ul></div>
+            </div>
+            <div id="cleared"></div>
+            <div class="zoneManagementListRoomItem_RoomInfo">{{roomUDN}}</div>
+            <div id="cleared"></div>
+        </div>
+    </script>  
+       
+
+    <!-- Zone Choosment block template -->
+    <script id="zoneChoosementBlockTemplate" type="text/x-handlebars-template">
+        <div class="zoneChoosementBlock {{htmlClass}}" id="{{zoneUDN}}" onclick="SelectCurrentZone('{{zoneUDN}}')">
+            <span>{{zoneName}}</span>
+        </div>
+    </script> 
+
+</head>
+
+    
+
+ 
+
+    <body>
+
+        <header>
+            <img src="img/RaumClientLogo300.png">   
+            <!--       
+            <nav>
+                <ul>
+                    <li><a href="javascript:void(0)">Home</a></li>
+                    <li><a href="javascript:void(0)">Playlist Management</a></li>              
+                    <li><a href="javascript:void(0)">Abount</a></li>
+                </ul>
+            </nav>
+            -->                      
+        </header>
+
+        <section id="spacer">
+            <h2 class="hidden">Spacer</h2>
+            <p class="onlineMarker">WebServer is online</p>            
+            <p class="offlineMarker">WebServer is offline</p> 
+        </section>
+        
+
+        
+        <div class="contentWrapper">
+            <div id="zoneManagementControl"></div>
+        </div>     
+
+        <div class="contentWrapper">
+            <div id="zoneChoosement"></div>
+            <div class="clear"></div>
+            <div id="zoneRendererView" class="zoneRendererView"></div>     
+        </div>                
+            
+        <div>    
+                                 
+            <p>             
+                <!-- TODO: Content Manager -->
+            </p>
+
+        </div>
+        <br class="clear" />
+   
+
+
+        <footer>
+            <h2 class="hidden">Footer</h2>
+            <section id="copyright">
+                <h3 class="hidden">Copyright notice</h3>
+                <div class="wrapper">
+                    <div class="social">
+                        <a href="http://raumserver.bassmaniacs.com/" target="_blank"><img src="" alt="RaumServer" width="25" /></a>
+                        <a href="http://www.raumfeld.com" target="_blank"><img src="" alt="Raumfeld" width="25" /></a>
+                        <a href="http://www.hifi-forum.de/index.php?action=browseT&forum_id=212&thread=1272" target="_blank"><img src="" alt="Hifi-Forum" width="25" /></a>                                
+                    </div>                    
+                    <div id="copyrightText">&copy; Copyright 2015 by ChriD</div>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="donate">
+                        <input type="hidden" name="cmd" value="_s-xclick">
+                        <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="Donate">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/de_DE/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
+            </section>            
+        </footer>
+
+    </body>
+
+</html>
